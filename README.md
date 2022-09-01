@@ -42,10 +42,7 @@
 
 Simple lazy CSV reader
 
-### Motivation
-
-I wanted to make my pure java native CSV parser public
-Features:
+### Features
 
 * No dependencies
 * Auto detect delimiters
@@ -55,7 +52,7 @@ Features:
 * Unzip
 * Reads files also from resources
 * tolerant (e.g. ignores empty lines, ignores missing columns)
-    * No NullPointerException or IndexOutOfBoundsException  
+  * No NullPointerException or IndexOutOfBoundsException
 
 ### Classes
 
