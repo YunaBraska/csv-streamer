@@ -1,0 +1,12 @@
+normal,unquoted,line
+"normal","quoted","line"
+"mixed",quoted,"line"
+"mixed",quoted,"line, with separator"
+"mixed",quoted,"line, with escaped quote "" variant",1
+"mixed",quoted,"line, with escaped quote \" variant",2
+"mixed",quoted,"line, with separator, and escaped quote "" variant",1
+"mixed",quoted,"line, with separator, and escaped quote \" variant",2
+
+empty,"line",above
+,,"",
+empty,"columns",above
