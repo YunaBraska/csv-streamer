@@ -76,7 +76,7 @@ Simple lazy CSV reader
 ### Example listCsv
 
 ```java
-        final List<CsvRow> csvList = listCsv.listCsv(EXAMPLE_CSV);
+        final List<CsvRow> csvList = ListCsv.listCsv(EXAMPLE_CSV);
 ```
 
 ### Example ConsumeCSV
@@ -88,8 +88,8 @@ Simple lazy CSV reader
 ### Example StreamCSV
 
 ```java
-        try(final Stream<CsvRow> StreamCSV.streamCSV=streamCSV(EXAMPLE_CSV)){
-            streamCSV.forEach(System.out::println);
+        try(final Stream<CsvRow> csvStream = StreamCSV.streamCSV(EXAMPLE_CSV)){
+            csvStream.forEach(System.out::println);
         }
 ```
 
