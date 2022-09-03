@@ -15,6 +15,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static berlin.yuna.logic.FileExtraction.extractFile;
 import static berlin.yuna.logic.FileUtils.getFile;
 import static berlin.yuna.logic.FileUtils.getResourceFile;
 import static berlin.yuna.model.CsvRow.csvRowOf;
@@ -63,7 +64,7 @@ public class CsvReader {
      * @return the {@link CsvRow} from the file as a Stream
      */
     public Stream<CsvRow> stream(final Path file) {
-        final Path tmpFile = getFile(file, () -> getResourceFile(file));
+        final Path tmpFile = extract(file, unzip);
         final char[] sep = autoSep ? new char[]{FileUtils.detectSeparator(tmpFile, charset)} : separator;
         try {
             final Stream<String> stream = Files.lines(tmpFile, charset);
@@ -179,6 +180,11 @@ public class CsvReader {
         if (file.compareTo(path) != 0) {
             FileUtils.deleteTmpFile(path);
         }
+    }
+
+    private Path extract(final Path file, final boolean extract) {
+        final Path tmpFile = getFile(file, () -> getResourceFile(file));
+        return extract ? extractFile(tmpFile) : tmpFile;
     }
 
 }
