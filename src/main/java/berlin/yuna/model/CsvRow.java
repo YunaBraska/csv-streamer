@@ -47,7 +47,7 @@ public class CsvRow extends ArrayList<String> {
     }
 
     /**
-     * @param row input string to be splitted
+     * @param row input string to be split
      * @return {@link CsvRow} with separate columns
      */
     public static CsvRow csvRowOf(final String row) {
@@ -55,7 +55,7 @@ public class CsvRow extends ArrayList<String> {
     }
 
     /**
-     * @param row        input string to be splitted
+     * @param row        input string to be split
      * @param separators delimiter to split the input
      * @return {@link CsvRow} with separate columns
      */
@@ -110,6 +110,28 @@ public class CsvRow extends ArrayList<String> {
      */
     public Optional<String> getOpt(final int index) {
         return Optional.ofNullable(this.get(index));
+    }
+
+    /**
+     * Returns the column value at the specified position in this {@link CsvRow}.
+     *
+     * @param index      index of the column value to return
+     * @param separators Splits the CSV rows at the given separator
+     * @return the column value as {@link CsvRow} at the specified position - fallback = null
+     */
+    public CsvRow get(final int index, final char... separators) {
+        return index < 0 || index >= this.size() ? null : csvRowOf(super.get(index), separators);
+    }
+
+    /**
+     * Returns the column value at the specified position in this {@link CsvRow}.
+     *
+     * @param index      index of the column value to return
+     * @param separators Splits the CSV rows at the given separator
+     * @return the column value as {@link Optional<CsvRow>} at the specified position - {@link Optional<CsvRow>#empty()}
+     */
+    public Optional<CsvRow> getOpt(final int index, final char... separators) {
+        return Optional.ofNullable(this.get(index, separators));
     }
 
     /**

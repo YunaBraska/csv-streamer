@@ -105,6 +105,11 @@ public class CsvReaderTest {
 }
 ```
 
-### TODO
+### Example InnerCSV
 
-* [ ] Inner CSV
+```java
+        final List<CsvRow> csvRows = ListCSV.listCSV(EXAMPLE_CSV)
+        final CsvRow firstColumn = csvRows.get(0);
+        final CsvRow innerCSV = firstColumn.get(0, ','); 
+```
+

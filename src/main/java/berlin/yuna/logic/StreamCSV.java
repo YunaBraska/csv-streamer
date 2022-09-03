@@ -20,28 +20,12 @@ public class StreamCSV {
      * are completed.<br/>
      * <b>See example: {@link CsvReader#readAllRows(Path)}</b>
      *
-     * @param file the path to the file - or path to a resource
+     * @param file       the path to the file - or path to a resource
+     * @param separators column split parameter (no regex)
      * @return the {@link CsvRow} from the file as a Stream
      */
-    public static Stream<CsvRow> streamCSV(final Path file) {
-        return streamCSV(file, -1);
-    }
-
-    /**
-     * '{@link Stream}<{@link CsvRow}>' <b>must be closed with 'try'-with-resources statement</b>
-     * <p> The returned stream encapsulates a {@link Reader}.  If timely
-     * disposal of file system resources is required, the try-with-resources
-     * construct should be used to ensure that the stream's
-     * {@link Stream#close close} method is invoked after the stream operations
-     * are completed.<br/>
-     * <b>See example: {@link CsvReader#readAllRows(Path)}</b>
-     *
-     * @param file the path to the file - or path to a resource
-     * @param skip lines to skip while reading csv
-     * @return the {@link CsvRow} from the file as a Stream
-     */
-    public static Stream<CsvRow> streamCSV(final Path file, final long skip) {
-        return streamCSV(file, skip, null, false);
+    public static Stream<CsvRow> streamCSV(final Path file, final char... separators) {
+        return streamCSV(file, -1, separators);
     }
 
     /**
