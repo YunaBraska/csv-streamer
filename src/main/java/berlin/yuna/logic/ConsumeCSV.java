@@ -11,22 +11,17 @@ import static berlin.yuna.logic.CsvReader.csvReader;
 public class ConsumeCSV {
 
     /**
-     * @param file the path to the file - or path to a resource
+     * @param file       the path to the file - or path to a resource
+     * @param consumer   consumer to progress the {@link berlin.yuna.model.CsvRow}
+     * @param separators column split parameter (no regex)
      */
-    public static void consumeCsv(final Path file, final Consumer<CsvIndexRow> consumer) {
-        consumeCsv(file, consumer, -1);
-    }
-
-    /**
-     * @param file the path to the file - or path to a resource
-     * @param skip lines to skip while reading csv
-     */
-    public static void consumeCsv(final Path file, final Consumer<CsvIndexRow> consumer, final long skip) {
-        consumeCsv(file, consumer, skip, null, false);
+    public static void consumeCsv(final Path file, final Consumer<CsvIndexRow> consumer, final char... separators) {
+        consumeCsv(file, consumer, -1, separators);
     }
 
     /**
      * @param file       the path to the file - or path to a resource
+     * @param consumer   consumer to progress the {@link berlin.yuna.model.CsvRow}
      * @param skip       lines to skip while reading csv
      * @param separators column split parameter (no regex)
      */
@@ -38,6 +33,7 @@ public class ConsumeCSV {
      * <b>See example: {@link CsvReader#readAllRows(Path)}</b>
      *
      * @param file       The path to the file - or path to a resource
+     * @param consumer   consumer to progress the {@link berlin.yuna.model.CsvRow}
      * @param skip       lines to skip while reading csv
      * @param charset    The charset to use for decoding the CSV file
      * @param separators Splits the CSV rows at the given separator <br/>Included fallback: [',']
@@ -48,6 +44,7 @@ public class ConsumeCSV {
 
     /**
      * @param file       The path to the file - or path to a resource
+     * @param consumer   consumer to progress the {@link berlin.yuna.model.CsvRow}
      * @param skip       lines to skip while reading csv
      * @param charset    The charset to use for decoding the CSV file
      * @param unzip      On <b>true</b> detects and unzips the CSV file automatically
@@ -59,6 +56,7 @@ public class ConsumeCSV {
 
     /**
      * @param file       The path to the file - or path to a resource
+     * @param consumer   consumer to progress the {@link berlin.yuna.model.CsvRow}
      * @param skip       lines to skip while reading csv
      * @param charset    The charset to use for decoding the CSV file
      * @param unzip      On <b>true</b> detects and unzips the CSV file automatically

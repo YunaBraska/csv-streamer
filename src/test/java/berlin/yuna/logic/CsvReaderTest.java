@@ -27,7 +27,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @Tag("UnitTest")
-class CsvReaderTest {
+public class CsvReaderTest {
 
     public static final Path EXAMPLE_CSV = Paths.get("test.csv");
     public static final String EXAMPLE_CSV_SEPARATORS = "SeparatorDetection.csv";

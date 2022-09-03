@@ -1,4 +1,5 @@
 csv;line;one
 csv;line,two;with,comma
 csv;line|three;with|pipe
+csv;line,four;my,inner,csv
 

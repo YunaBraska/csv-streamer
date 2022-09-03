@@ -4,10 +4,13 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static berlin.yuna.logic.CsvReaderTest.EXAMPLE_CSV_SEPARATORS;
+import static berlin.yuna.logic.ListCSV.listCSV;
 import static berlin.yuna.model.CsvRow.csvRowArrayOf;
 import static berlin.yuna.model.CsvRow.csvRowListOf;
 import static berlin.yuna.model.CsvRow.csvRowOf;
@@ -85,7 +88,19 @@ class CsvRowTest {
         extractedUnsupportedException(() -> csvRow.replaceAll(String::toUpperCase));
         extractedUnsupportedException(() -> csvRow.removeRange(1, 2));
         extractedUnsupportedException(csvRow::clear);
+    }
 
+    @Test
+    void CsvRowInnerCsvTest() {
+        final List<CsvRow> csv = listCSV(Paths.get(EXAMPLE_CSV_SEPARATORS), ';');
+        final CsvRow csvRow = csv.get(3);
+        assertThat(csvRow.get(3, ','), is(nullValue()));
+        assertThat(csvRow.getOpt(3, ','), is(Optional.empty()));
+
+        final CsvRow innerCsv1 = csvRow.get(2, ',');
+        final CsvRow innerCsv2 = csvRow.getOpt(2, ',').orElse(null);
+        assertThat(innerCsv1, is(innerCsv2));
+        assertThat(innerCsv1.toArray(), is(equalTo(new String[]{"my", "inner", "csv"})));
     }
 
     private static void extractedUnsupportedException(final Executable executable) {
