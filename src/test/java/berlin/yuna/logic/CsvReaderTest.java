@@ -70,7 +70,7 @@ class CsvReaderTest {
             assertThat(stream.collect(Collectors.toList()), is(not(empty())));
         }
 
-        try (final Stream<CsvRow> stream = streamCSV(Paths.get(requireNonNull(this.getClass().getClassLoader().getResource("test.csv")).toURI()))) {
+        try (final Stream<CsvRow> stream = streamCSV(getResourceFile("test.csv"))) {
             assertThat(stream.collect(Collectors.toList()), is(not(empty())));
         }
     }
@@ -108,4 +108,11 @@ class CsvReaderTest {
         assertThat(csv.get(9), is(equalTo(csvRowOf("empty", "columns", "above"))));
     }
 
+    public static Path getResourceFile(final String file) {
+        try {
+            return Paths.get(requireNonNull(CsvReaderTest.class.getClassLoader().getResource(file)).toURI());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

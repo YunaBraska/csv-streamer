@@ -22,6 +22,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static java.nio.file.Files.newBufferedReader;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import static java.util.Comparator.comparingLong;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.groupingBy;
@@ -112,7 +113,7 @@ public class FileUtils {
         Path tempFile = null;
         try (final InputStream in = FileUtils.class.getClassLoader().getResourceAsStream(file.toString())) {
             tempFile = Files.createTempFile(CsvReader.class.getSimpleName() + "_", ".csv");
-            Files.copy(validateInputStream(in, () -> file), tempFile, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(validateInputStream(in, () -> file), tempFile, REPLACE_EXISTING);
             return tempFile;
         } catch (Exception e) {
             deleteTmpFile(tempFile);

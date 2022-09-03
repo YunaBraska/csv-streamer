@@ -40,19 +40,8 @@
 [gitter_shield]: https://img.shields.io/gitter/room/YunaBraska/csv-streamer?style=flat-square
 [gitter_link]: https://gitter.im/csv-streamer/Lobby
 
-Simple lazy CSV reader
-
-### Features
-
-* No dependencies
-* Auto detect delimiters
-* lazy stream & consume CSV lines
-* Immutable
-* Inner CSV (for columns with a internal CSV)
-* Unzip
-* Reads files also from resources
-* tolerant (e.g. ignores empty lines, ignores missing columns)
-  * No NullPointerException or IndexOutOfBoundsException
+Lazy CSV reader: plain java, no dependencies, streaming, resource reader, unzip, autodetect delimiters, Immutable,
+InnerCSV NullPointerException or IndexOutOfBoundsException
 
 ### Classes
 
@@ -65,13 +54,13 @@ Simple lazy CSV reader
 
 ### Options
 
-| Options    | Type    | Default | Description                                               |
-|------------|---------|---------|-----------------------------------------------------------|
-| Skip       | long    | -1      | Lines to skip while reading csv                           | 
-| charset    | Charset | UTF_8   | Charset to use for decoding the CSV file                  | 
-| unzip      | boolean | false   | On **true** detects and unzips the CSV file automatically | 
-| autoSep    | boolean | false   | On **true** detects the separator automatically           | 
-| separators | char... | ','     | Splits the CSV rows at the given separator                | 
+| Options    | Type    | Default | Description                                                 |
+|------------|---------|---------|-------------------------------------------------------------|
+| Skip       | long    | -1      | Lines to skip while reading csv                             | 
+| charset    | Charset | UTF_8   | Charset to use for decoding the CSV file                    | 
+| unzip      | boolean | false   | On **true** detects and extracts the CSV file automatically | 
+| autoSep    | boolean | false   | On **true** detects the separator automatically             | 
+| separators | char... | ','     | Splits the CSV rows at the given separator                  | 
 
 ### Example listCsv
 
@@ -119,4 +108,3 @@ public class CsvReaderTest {
 ### TODO
 
 * [ ] Inner CSV
-* [ ] Unzip (e.g. Gz, Tar, Zip) 

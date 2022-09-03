@@ -1,6 +1,7 @@
 package berlin.yuna.logic;
 
 import berlin.yuna.model.IoCsvException;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -26,9 +27,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Tag("UnitTest")
 class FileUtilsTest {
 
+    public static final Path TMP_CSV_SEP = getFile(EXAMPLE_CSV_SEPARATORS);
+
+    @AfterAll
+    static void afterAll() throws IOException {
+        Files.deleteIfExists(TMP_CSV_SEP);
+    }
+
     @Test
     void detectSeparatorTest() {
-        final char separator = detectSeparator(getFile(EXAMPLE_CSV_SEPARATORS), StandardCharsets.UTF_8);
+        final char separator = detectSeparator(TMP_CSV_SEP, StandardCharsets.UTF_8);
         assertThat(separator, is(';'));
     }
 
@@ -42,7 +50,7 @@ class FileUtilsTest {
     @Test
     void getFileTest() throws IOException, URISyntaxException {
         final Path absolutePath = getFile(Paths.get(requireNonNull(this.getClass().getClassLoader().getResource(EXAMPLE_CSV_SEPARATORS)).toURI()));
-        final Path resourcePath = getFile(EXAMPLE_CSV_SEPARATORS);
+        final Path resourcePath = TMP_CSV_SEP;
         final Path fallbackPath = getFile(Paths.get("invalid"), () -> resourcePath);
         assertThat(absolutePath, is(not(equalTo(resourcePath))));
         assertThat(Files.readAllLines(resourcePath), is(equalTo(Files.readAllLines(absolutePath))));
