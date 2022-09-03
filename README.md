@@ -27,8 +27,8 @@
 [commit_link]: https://github.com/YunaBraska/csv-streamer/issues
 [license_shield]: https://img.shields.io/github/license/YunaBraska/csv-streamer?style=flat-square
 [license_link]: https://github.com/YunaBraska/csv-streamer/blob/main/LICENSE
-[dependency_shield]: https://img.shields.io/librariesio/github/YunaBraska/csv-streamer?style=flat-square
-[dependency_link]: https://libraries.io/github/YunaBraska/csv-streamer
+[dependency_shield]: https://snyk.io/test/github/YunaBraska/csv-streamer/badge.svg?style=flat-square
+[dependency_link]: https://snyk.io/test/github/YunaBraska/csv-streamer
 [central_shield]: https://img.shields.io/maven-central/v/berlin.yuna/csv-streamer?style=flat-square
 [central_link]:https://search.maven.org/artifact/berlin.yuna/csv-streamer
 [tag_shield]: https://img.shields.io/github/v/tag/YunaBraska/csv-streamer?style=flat-square

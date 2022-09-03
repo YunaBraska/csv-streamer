@@ -6,7 +6,7 @@
 
     <groupId>berlin.yuna</groupId>
     <artifactId>csv-streamer</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <name>csv-streamer</name>
     <description>Lazy CSV reader: plain java, no dependencies, streaming, resource reader, unzip, autodetect delimiters,
