@@ -6,10 +6,12 @@
 
     <groupId>berlin.yuna</groupId>
     <artifactId>csv-streamer</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <name>csv-streamer</name>
-    <description>Simple lazy CSV reader</description>
+    <description>Lazy CSV reader: plain java, no dependencies, streaming, resource reader, unzip, autodetect delimiters,
+        Immutable, InnerCSV NullPointerException or IndexOutOfBoundsException
+    </description>
     <url>https://github.com/YunaBraska/csv-streamer</url>
 
     <scm>

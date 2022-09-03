@@ -27,8 +27,8 @@
 [commit_link]: https://github.com/YunaBraska/csv-streamer/issues
 [license_shield]: https://img.shields.io/github/license/YunaBraska/csv-streamer?style=flat-square
 [license_link]: https://github.com/YunaBraska/csv-streamer/blob/main/LICENSE
-[dependency_shield]: https://img.shields.io/librariesio/github/YunaBraska/csv-streamer?style=flat-square
-[dependency_link]: https://libraries.io/github/YunaBraska/csv-streamer
+[dependency_shield]: https://snyk.io/test/github/YunaBraska/csv-streamer/badge.svg?style=flat-square
+[dependency_link]: https://snyk.io/test/github/YunaBraska/csv-streamer
 [central_shield]: https://img.shields.io/maven-central/v/berlin.yuna/csv-streamer?style=flat-square
 [central_link]:https://search.maven.org/artifact/berlin.yuna/csv-streamer
 [tag_shield]: https://img.shields.io/github/v/tag/YunaBraska/csv-streamer?style=flat-square
@@ -40,19 +40,8 @@
 [gitter_shield]: https://img.shields.io/gitter/room/YunaBraska/csv-streamer?style=flat-square
 [gitter_link]: https://gitter.im/csv-streamer/Lobby
 
-Simple lazy CSV reader
-
-### Features
-
-* No dependencies
-* Auto detect delimiters
-* lazy stream & consume CSV lines
-* Immutable
-* Inner CSV (for columns with a internal CSV)
-* Unzip
-* Reads files also from resources
-* tolerant (e.g. ignores empty lines, ignores missing columns)
-  * No NullPointerException or IndexOutOfBoundsException
+Lazy CSV reader: plain java, no dependencies, streaming, resource reader, unzip, autodetect delimiters, Immutable,
+InnerCSV NullPointerException or IndexOutOfBoundsException
 
 ### Classes
 
@@ -65,13 +54,13 @@ Simple lazy CSV reader
 
 ### Options
 
-| Options    | Type    | Default | Description                                               |
-|------------|---------|---------|-----------------------------------------------------------|
-| Skip       | long    | -1      | Lines to skip while reading csv                           | 
-| charset    | Charset | UTF_8   | Charset to use for decoding the CSV file                  | 
-| unzip      | boolean | false   | On **true** detects and unzips the CSV file automatically | 
-| autoSep    | boolean | false   | On **true** detects the separator automatically           | 
-| separators | char... | ','     | Splits the CSV rows at the given separator                | 
+| Options    | Type    | Default | Description                                                 |
+|------------|---------|---------|-------------------------------------------------------------|
+| Skip       | long    | -1      | Lines to skip while reading csv                             | 
+| charset    | Charset | UTF_8   | Charset to use for decoding the CSV file                    | 
+| unzip      | boolean | false   | On **true** detects and extracts the CSV file automatically | 
+| autoSep    | boolean | false   | On **true** detects the separator automatically             | 
+| separators | char... | ','     | Splits the CSV rows at the given separator                  | 
 
 ### Example listCsv
 
@@ -119,4 +108,3 @@ public class CsvReaderTest {
 ### TODO
 
 * [ ] Inner CSV
-* [ ] Unzip (e.g. Gz, Tar, Zip) 
