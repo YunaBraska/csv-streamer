@@ -5,7 +5,6 @@ import berlin.yuna.model.IoCsvException;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -54,7 +53,7 @@ public class CsvReaderTest {
     }
 
     @Test
-    void csvFileValidations() throws URISyntaxException {
+    void csvFileValidations() {
         final Path userDir = Paths.get(System.getProperty("user.dir"));
         final Path invalidFile = Paths.get("invalidFile");
         final Exception directory = assertThrows(IoCsvException.class, () -> streamCSV(userDir));
