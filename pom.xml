@@ -6,7 +6,7 @@
 
     <groupId>berlin.yuna</groupId>
     <artifactId>csv-streamer</artifactId>
-    <version>1.1.8</version>
+    <version>1.1.9</version>
 
     <name>csv-streamer</name>
     <description>Lazy CSV reader: plain java, no dependencies, streaming, resource reader, unzip, autodetect delimiters,
@@ -42,7 +42,7 @@
         <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
         <!-- TEST -->
         <hamcrest-core.version>2.2</hamcrest-core.version>
-        <junit-jupiter.version>5.9.2</junit-jupiter.version>
+        <junit-jupiter.version>5.9.3</junit-jupiter.version>
         <!-- VERSIONS BUILD -->
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-scm-plugin.version>1.11.2</maven-scm-plugin.version>
