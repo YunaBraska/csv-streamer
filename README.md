@@ -15,8 +15,8 @@
 [![Size][size_shield]][size_shield]
 ![Label][label_shield]
 
-[build_shield]: https://github.com/YunaBraska/csv-streamer/workflows/JAVA_CI/badge.svg
-[build_link]: https://github.com/YunaBraska/csv-streamer/actions?query=workflow%3AJAVA_CI
+[build_shield]: https://github.com/YunaBraska/csv-streamer/workflows/Daily/badge.svg
+[build_link]: https://github.com/YunaBraska/csv-streamer/actions?query=workflow%3AJDaily
 [maintainable_shield]: https://img.shields.io/codeclimate/maintainability/YunaBraska/csv-streamer?style=flat-square
 [maintainable_link]: https://codeclimate.com/github/YunaBraska/csv-streamer/maintainability
 [coverage_shield]: https://img.shields.io/codeclimate/coverage/YunaBraska/csv-streamer?style=flat-square
