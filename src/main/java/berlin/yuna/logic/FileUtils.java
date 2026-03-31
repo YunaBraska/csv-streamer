@@ -77,8 +77,8 @@ public class FileUtils {
     }
 
     public static List<String> readAllLines(final Path file, final Charset charset, final int limit) {
+        final AtomicInteger count = new AtomicInteger(-1);
         try (final BufferedReader reader = newBufferedReader(file, charset)) {
-            final AtomicInteger count = new AtomicInteger(-1);
             final List<String> result = new ArrayList<>();
             String line;
             while ((line = reader.readLine()) != null && count.getAndIncrement() < limit) {
@@ -86,7 +86,7 @@ public class FileUtils {
             }
             return result;
         } catch (IOException e) {
-            throw new IoCsvException("File read error [" + file + "]", e);
+            throw new IoCsvException("File read error! count=" + count.get() + " file=[" + file + "]", e);
         }
     }
 
