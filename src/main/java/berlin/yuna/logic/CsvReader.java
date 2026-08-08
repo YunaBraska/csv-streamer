@@ -52,7 +52,7 @@ public class CsvReader {
     }
 
     /**
-     * '{@link Stream}<{@link CsvRow}>' must be closed with 'try'-with-resources statement
+     * {@code Stream<CsvRow>} must be closed with a try-with-resources statement.
      * <p> The returned stream encapsulates a {@link Reader}. If timely
      * disposal of file system resources is required, the try-with-resources
      * construct should be used to ensure that the stream's
