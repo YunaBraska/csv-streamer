@@ -178,15 +178,8 @@
     <!-- MAVEN CENTRAL USAGE -->
     <profiles>
         <profile>
-            <!-- mvn clean deploy -P release -->
-            <id>release</id>
-            <activation>
-                <property>
-                    <name>release</name>
-                    <value>true</value>
-                </property>
-                <activeByDefault>false</activeByDefault>
-            </activation>
+            <!-- Maven Central only: mvn clean deploy -P central -->
+            <id>central</id>
             <build>
                 <plugins>
                     <!-- QUALITY GATE -->
